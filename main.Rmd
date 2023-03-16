@@ -17,12 +17,12 @@ if (!require("BiocManager", quietly = TRUE))
 BiocManager::install("GDCRNATools")
 
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(GDCRNATools, dplyr, tidyr, survival, knitr)
+pacman::p_load(GDCRNATools, dplyr, tidyr, survival, knitr, ggplotly)
 ```
 
 ### Preamble
 
-This R Markdown document is a reproduction of the analysis made in the manuscript 'Metastatic cells exploit their stoichiometric niche in the network of cancer ecosystems' by Castillo SP et al. All the data input and customised functions are available in the repository associated. Each step is explained extensively considering the data input, comments on the pipeline complementary to the manuscript, and data output and plots. Further questions, please contact the corresponding authors Simon Castillo (simon.castillo@icr.ac.uk) or Pablo Marquet (pmarquet@bio.puc.cl).  
+This document is a reproduction of the analysis made in the manuscript 'Metastatic cells exploit their stoichiometric niche in the network of cancer ecosystems' by Castillo SP et al. All the data input and customised functions are available in the repository associated ([https://github.com/simonpcastillo/metastaticdiaspora]). Further questions, please contact the corresponding authors Simon Castillo (simon.castillo@icr.ac.uk) or Pablo Marquet (pmarquet@bio.puc.cl).  
 
 ### The metastatic network
 
