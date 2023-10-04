@@ -93,5 +93,11 @@ nodf.obs<-nestednodf(dataBSI, weighted = TRUE)$statistic[3]
         z.mod =(mod.obs- mod_fn1)/sqrt(mod_fn2)
       )
     
+# correlation vascualr matrix and metastatic incidence
     
-    
+    art<-as.matrix(read.csv('data/art_net.csv', row.names = 1)); art[is.na(art)]<-0
+
+    namess<-rownames(art)
+    exc<-c( 'Tongue')
+    dataBSI<-dataBSI[dataBSI[!namess %in% exc],namess[!namess %in% exc]]
+    cor.test(dataBSI, art, method='kendall')  
