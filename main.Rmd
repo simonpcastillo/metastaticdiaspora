@@ -107,8 +107,22 @@ For nestedness and clustering, we compared the observed values against null mode
 
 $$ z = {observed - E{(null)} \over var(null)} $$ 
 
+### Vascular network
 
+```{r vascular}
+art<-as.matrix(read.csv('data/art_net.csv', row.names = 1)); art[is.na(art)]<-0
+data2= read.csv('data/occurences.csv', sep = ',', header=T, row.names = 1)
 
+namess<-rownames(art)
+exc<-c( 'Tongue')
+data2b<-data2[namess[!namess %in% exc],namess[!namess %in% exc]]
+
+overall<-sum(data2b)
+
+dataBSI<-data2b/overall
+dataBSI<-as.matrix(dataBSI)
+cor.test(dataBSI, art, method='kendall')
+```
 ### Stoichiometric approach
 
 Using estimations from literature, we incorporate the content of phosphorous (P) per organ normalised by organ size (`P.g`). We filter out Bone as an organ/tissue due to that its P availability represent different mechanisms of P-related metabolism. Using a GLM with negative binomial distribution, we tested the relationship between P content and Source and Acceptor degrees, `S_k`, and `A_k`, respectively.
